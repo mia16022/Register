@@ -1,0 +1,31 @@
+<div class="main">
+<div class="container">
+
+<table>
+    <caption>癌登録患者一覧</caption>
+    <thead>
+            <tr>
+            <th></th>
+            <th>名前</th>
+            <th>性別</th>
+            <th>生年月日</th>
+            <th>カルテ番号</th>
+            </tr>
+    </thead>
+<% @users.each do |user| %>
+    
+    <tr>
+            <td><%= link_to "削除", "/cancer/#{user.id}/destroy",method:"post",data: {confirm: "本当にいいですか？"} %></td>
+    
+            <td><%= link_to(user.name,"/cancer/#{user.id}/edit") %></td>
+            <td><%= user.mw %></td>
+            <td><%= user.birth %></td>
+            <td><%= user.record_n %></td>
+    </tr>
+
+   
+<% end %>
+<%= paginate @users %>
+</table>
+</div>
+</div>

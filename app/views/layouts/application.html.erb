@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>癌登録</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+<header>
+<ul class="header-menus">
+
+<% if  session[:person_id]==@current_member.id %>
+<li class="hospital-infomation">
+<li>
+<%= @current_person.hospital%>
+</li>
+<li>
+<%=link_to(@current_person.him_name,"/members/#{@current_person.id}/edit") %>
+</li>
+<li>
+ <%= link_to("癌患者登録","/cancer/registers") %>
+ </li>
+ <li>
+ <%= link_to("患者一覧","/cancer/top") %>
+ </li>
+
+ <li>
+ <%= link_to("ユーザー一覧","/members/index") %>
+ </li>
+ <li>
+<%= link_to("管理者登録","/members/registers") %>
+</li>
+ <li>
+ <%= link_to("ログアウト","/signout",{method:"post"}) %>
+ </li>
+ <% elsif session[:person_id] %> 
+ <li>
+<%= @current_person.hospital%>
+</li>
+ <li>
+ <%= link_to("患者一覧","/cancer/top") %>
+ </li>
+
+ <li>
+ <%= link_to("ログアウト","/signout",{method:"post"}) %>
+ </li>
+
+<% else %>
+<li>
+<%= link_to("ログイン","/signin") %>
+</li>
+
+
+
+</ul>
+<%end%>
+</header>
+</div>
+
+  <% if flash[:notice] %>
+  <div class="flash">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+    <%= yield %>
+  </body>
+</html>

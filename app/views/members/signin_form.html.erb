@@ -1,0 +1,20 @@
+<div class="main">
+
+<h1 class="center">ログイン画面</h1>
+<div class="container-signin">
+
+<%= form_tag("/signin") do %>
+    <p>ユーザーID</p>
+    <input name="him_id" value="<%=@him_id%>">
+    <p>パスワード</p>
+    <input type="password" name="password" value="<%=@password%>">
+
+    <input type="submit" value="ログイン">
+    <%end%> 
+
+<% if @error_message %>
+<div class="form-error">
+<%=@error_message%>
+</div>
+<%end%>
+</div>

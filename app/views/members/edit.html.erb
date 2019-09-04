@@ -1,0 +1,27 @@
+
+<div class="main">
+<h1 class="center">ユーザー編集</h1>
+<%= form_tag("/members/#{@person.id}/update") do %>
+  
+
+  <div class="container">
+  <p>病院名</p>
+    <input name="hospital" value="<%= @person.hospital%>">
+    <p>名前</p>
+    <input name="him_name" value="<%= @person.him_name%>">
+    <p>ユーザーID</p>
+    <input name="him_id" value="<%= @person.him_id %>">
+    <p>パスワード</p>
+    <input type="password" name="password" value="<%= @person.password%>">
+    
+    <input type="submit" value="登録">
+
+  <% end %>
+
+<% @person.errors.full_messages.each do |message| %>
+  <div class="form-error">
+    <%= message %>
+  </div>
+  <% end %>
+  </div>
+ </div>

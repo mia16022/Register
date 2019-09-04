@@ -1,0 +1,43 @@
+
+
+<div class="main">
+<h1 class="center">編集</h1>
+<%= form_tag("/cancer/#{@user.id}/update") do %>
+  
+
+  <div class="container">
+    <p>名前</p>
+    <input name="name" value="<%= @user.name%>">
+    <p>性別:
+    
+    <div class="cp_ipradio"> 
+     <% if @user.mw=="男性"%>
+  <input type="radio" name="mw"  value="男性" id="a_rb1" checked >
+    <label for="a_rb1" >男性</label>
+    <input type="radio" name="mw" value="女性"  id="a_rb2" >
+  <label for="a_rb2" >女性</label>
+<%else%>
+<input type="radio" name="mw"  value="男性" id="a_rb1"  >
+<label for="a_rb1" >男性</label>
+  <input type="radio" name="mw" value="女性"  id="a_rb2" checked>
+  <label for="a_rb2" >女性</label>
+  <%end%>
+
+  </div>
+</p>
+    <p>生年月日</p>
+    <input type="date" name="birth" value="<%= @user.birth%>">
+    <p>カルテ番号</p>
+    <input name="record_n" value="<%= @user.record_n%>">
+    <input type="submit" value="登録">
+
+  <% end %>
+<p class="him">更新者:<%=@user.person.him_name%></p>
+
+<% @user.errors.full_messages.each do |message| %>
+  <div class="form-error">
+    <%= message %>
+  </div>
+  <% end %>
+  </div>
+ </div>

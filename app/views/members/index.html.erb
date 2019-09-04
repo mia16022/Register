@@ -1,0 +1,32 @@
+<div class="main">
+<div class="container2">
+
+<table>
+    <caption>癌登録　登録関係者</caption>
+    <thead>
+            <tr>
+            <th></th>
+            <th>病院</th>
+            <th>名前</th>
+            <th>ユーザーID</th>
+            </tr>
+    </thead>
+<% @persons.each do |person| %>
+    
+    <tr>
+            <td><%= link_to "削除", "/members/#{person.id}/destroy",method:"post",data: {confirm: "本当にいいですか？"} %></td>
+    
+            <td><%= person.hospital %></td>
+            <% if person.id==@current_person.id %>
+            <td><%= link_to(person.him_name,"/members/#{person.id}/edit") %></td>
+            <% else %>
+            <td><%= person.him_name %></td>
+            <%end%>
+            <td><%= person.him_id %></td>
+            
+    </tr>  
+<% end %>
+
+</table>
+</div>
+</div>

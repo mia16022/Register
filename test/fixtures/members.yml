@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  him_name: MyString
+  him_id: MyString
+  hospital: MyString
+  password: MyString
+
+two:
+  him_name: MyString
+  him_id: MyString
+  hospital: MyString
+  password: MyString
