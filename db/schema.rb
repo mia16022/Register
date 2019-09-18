@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_155215) do
+ActiveRecord::Schema.define(version: 2019_09_14_023529) do
 
   create_table "hospital_ids", force: :cascade do |t|
   end
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_155215) do
     t.string "surv_month_year"
     t.string "outcome_age"
     t.string "disease"
-    t.string "stomach"
+    t.string "stomach_cancers"
     t.string "ft_grt_lesion"
     t.string "ft_grt_period"
     t.string "residual_gascan"
