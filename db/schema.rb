@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_14_023529) do
+ActiveRecord::Schema.define(version: 2019_10_09_135808) do
 
   create_table "hospital_ids", force: :cascade do |t|
   end
@@ -49,16 +49,16 @@ ActiveRecord::Schema.define(version: 2019_09_14_023529) do
     t.string "register_hp"
     t.string "clinical_dp"
     t.text "id_no"
-    t.decimal "treat_startday"
-    t.decimal "surg_date"
+    t.date "treat_startday"
+    t.date "surg_date"
     t.string "surg_age"
     t.string "life_and_death"
     t.string "cause_of_death"
     t.string "recu"
     t.string "recu_type"
-    t.decimal "recu_date"
+    t.date "recu_date"
     t.string "recu_registers"
-    t.decimal "last_survdate"
+    t.date "last_survdate"
     t.string "surv_date"
     t.string "surv_days"
     t.string "surv_month_year"

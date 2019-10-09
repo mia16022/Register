@@ -44,9 +44,9 @@
              <li><a href="btn-8">一覧</a></li>
              <li><a href="btn-9">MENU</a></li>
          </ul>
- 
-         <table border="1" name="a" width="104%" height="40%">
          <%= form_tag("/cancer/create") do %>
+         <table border="1" name="a" width="104%" height="40%">
+         
              <body>
                  <tr>
                      <th>年</th>
@@ -80,7 +80,7 @@
                  </tr>
                  <tr>
                      <th colspan="2">治療開始<br>年月日</th>
-                     <td colspan="2"><span class="required">※</span><input type="text" size="10" name="treat_startday" value="<%=@user.treat_startday%>"><input type="reset" value="×"></td>
+                     <td colspan="2"><span class="required">※</span><input type="date" size="10" name="treat_startday" value="<%=@user.treat_startday%>"><input type="reset" value="×"></td>
                      <th colspan="2">手術年月日</th>
                      <td colspan="2"><span class="required">※</span><input type="date" name="surg_date" value="<%=@user.surg_date%>"></td>
                      <th colspan="2">手術時年齢</th>
@@ -129,12 +129,12 @@
      　                  </select>
                      </td> 
                      <th colspan="1">再発年月日<br>(再発ありの場合)</th>
-                     <td colspan="3"><span class="required">※</span><input type="text" size="10" name="recu_date" value="<%=@user.recu_date%>"><input type="reset" value="×"></td>
+                     <td colspan="3"><span class="required">※</span><input type="date" size="10" name="recu_date" value="<%=@user.recu_date%>"><input type="reset" value="×"></td>
                      </td>
                　</tr>
              　  <tr>
                      <th colspan="2">最終生存<br>確認日</th>
-                     <td><span class="required">※</span><input type="text" size="10" name="last_survdate" value="<%=@user.last_survdate%>"><input type="reset" value="×"></td>
+                     <td><span class="required">※</span><input type="date" size="10" name="last_survdate" value="<%=@user.last_survdate%>"><input type="reset" value="×"></td>
                      <th colspan="3">生存期間</th>
                      <td><span class="required"></span><input type="text" size="10" name="surv_date" value="<%=@user.surv_date%>"><input type="reset" value="×"></td>
                      <th>日数</th>
@@ -612,7 +612,7 @@
                              <option value="T3">T3 SS</option>
                              <option value="T4a">T4a SE</option>
                              <option value="T4b">T4b SI</option>
-                             <option value="TX">XX 不明</option>
+                             <option value="TX">TX 不明</option>
                          </select>
                          ▶確実なT4にもかかわらず、合併切除を行わなかったために"SE"と診断された場合は"SI"を入力
                      </td>
@@ -855,8 +855,8 @@
              </body>
            
          </table>
-         <input type="submit" value="登録">
-                 <% end %>
+         <%=submit_tag("登録")%>
+               
 <% @user.errors.full_messages.each do |message| %>
     <div class="form-error">
       <%= message %>
@@ -864,3 +864,4 @@
     <% end %>
      </div>
  </body>
+ <% end %>
